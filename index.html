@@ -10,39 +10,30 @@
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
 </head>
 <body>
-<h1>数学
- <h2>分析</h2>
- <h2>代数</h2>
- <h2>概率论与统计</h2>
- <h2>图论</h2>
-</h1>
-<h1>人工智能
- <h2>Machine Learning</h2>
- <h2>Deep Learning</h2>
- <h2>NLP</h2>
- <h2>CV</h2>
- <h2>机器翻译</h2>
- <h2>语音识别</h2>
- <h2>自动驾驶</h2>
-</h1>
-<h1>算法
-<h2>GeeksforGeeks</h2>
-<h2>LeetCode</h2>
-</h1>
-
-<h1>计算机
-<h2>语言</h2>
-<h2>工具</h2>
-</h1>
-
-<h1>八卦扯</h1>
-<h1>Books</h1>
-<h1>Papers</h1>
-<h1>音乐</h1>
-<h1>经典文学</h1>
-<h1>Userful Links</h1>
-<a href="https://zhuanlan.zhihu.com/matongxue">马同学</a>
-<br><a href="http://www.flickering.cn/category/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/">数学之美</a>
-</br>
+ <div id="app">loading, wait a moment please</div>
+ <script>
+    window.$docsify={
+      name: 'liang',
+      repo: 'wangliangster',
+      loadSidebar: 'SUMMARY.md',
+      logo: 'favicon.ico',
+      subMaxLevel: 2,
+      auto2top: true,
+      markdown: {
+        gfm: true,
+        tables: true,
+      },
+      search: {
+        placeholder: '输入搜索内容',
+        noData: '找不到结果',
+        depth: 6,
+      },
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 </body>
 </html>
