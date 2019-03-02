@@ -1,4 +1,4 @@
-* [简介](math/statics/README.md)
+* [概率与统计](math/statics/README.md)
 ---
 * [均匀分布](math/statics/files/equal.md)
 * [0-1分布](math/statics/files/0-1.md)
@@ -12,3 +12,5 @@
 * [t分布](math/statics/files/t.md)
 * [F分布](math/statics/files/f.md)
 * [卡方分布](math/statics/files/xx.md)
+---
+* [返回上一级](math/README.md)

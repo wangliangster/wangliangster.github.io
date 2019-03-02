@@ -1,5 +1,4 @@
 # 个人博客
-
 主页地址：[https://wangliangster.github.io](https://wangliangster.github.io)
 
 #### 简介
@@ -13,6 +12,9 @@
 ##### 概率论与数理统计
 - 各种分布
 
+##### 图论 
+- todo
+
 #### 联系方式
 
-可以使用[Issue](https://github.com/wangliangster/wangliangster.github.io/issues)来留言。
+任何问题，可以使用[Issue](https://github.com/wangliangster/wangliangster.github.io/issues)来留言。
