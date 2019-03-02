@@ -1,6 +1,14 @@
 * [简介](math/statics/README.md)
 ---
-
-* [二项分布](math/statics/1.md)
-* [泊松分布](math/statics/2.md)
-* [正态分布](math/statics/3.md)
+* [均匀分布](math/statics/files/equal.md)
+* [0-1分布](math/statics/files/0-1.md)
+* [二项分布](math/statics/files/bin.md)
+* [多项分布](math/statics/files/mul.md)
+* [泊松分布](math/statics/files/poisson.md)
+* [正态分布](math/statics/files/gauss.md)
+* [Beta分布](math/statics/files/beta.md)
+* [Dirichlet分布](math/statics/files/dir.md)
+* [共轭分布](math/statics/files/gonge.md)
+* [t分布](math/statics/files/t.md)
+* [F分布](math/statics/files/f.md)
+* [卡方分布](math/statics/files/xx.md)
