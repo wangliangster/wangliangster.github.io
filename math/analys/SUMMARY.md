@@ -1,7 +1,8 @@
 * [数学分析](math/analys/README.md)
 ---
+* [Taylor公式](math/analys/taylor.md)
 * [Gamma函数](math/analys/gamma.md)
-* [拉格朗日插值]()
+* [拉格朗日插值](math/analys/lagrange.md)
 * [Fourier变换]()
 * [拉普拉斯变换]()
 * [Z变换]()
