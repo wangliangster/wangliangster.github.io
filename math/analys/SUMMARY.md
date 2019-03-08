@@ -2,6 +2,7 @@
 ---
 * [Beta函数](math/analys/beta.md)
 * [Gamma函数](math/analys/gamma.md)
+* [Beta函数与Gamma函数的关系](math/analys/bgrelation.md)
 * [Taylor公式](math/analys/taylor.md)
 * [拉格朗日插值](math/analys/lagrange.md)
 * [Fourier变换]()
