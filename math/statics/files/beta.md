@@ -17,7 +17,7 @@ E(x)=\frac{p}{p+q}
 $$
 #### 方差
 $$
-\sigma(x)=\frac{pq}{(p+q)^2(p+q+1)}
+\sigma^2(x)=\frac{pq}{(p+q)^2(p+q+1)}
 $$ 
 
 #### 具体应用参考
