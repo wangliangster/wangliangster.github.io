@@ -1,5 +1,7 @@
 * [概率与统计](math/statics/README.md)
 ---
+* [PMF/PDF期望方差概念](math/statics/files/basic.md)
+---
 * [均匀分布](math/statics/files/equal.md)
 * [0-1分布](math/statics/files/0-1.md)
 * [二项分布](math/statics/files/bin.md)

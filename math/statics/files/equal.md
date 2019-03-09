@@ -1,5 +1,5 @@
 # 均匀分布
-均匀分布(uniform distribution)是关于区间$x\in[a,b]$上的连续随机变量$x$处处均匀分布的分布
+均匀分布(uniform distribution)是关于区间$x\in[a,b]$上的连续随机变量$x$**处处均匀**随机出现的分布
 
 ### 概率密度函数
 $$
