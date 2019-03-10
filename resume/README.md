@@ -12,4 +12,4 @@
 
 
 - 详请见[中文简历](resume/chinese.md)
-- detail see [English Resume](resume/chinese.md)
+- detail see [English Resume](resume/resume.md)
