@@ -16,6 +16,6 @@
 * [卡方分布](math/statics/files/xx.md)
 ---
 * [极大似然法](math/statics/files/likehood.md)
-* [最大后验估计](math/statics/files/likehood.md)
-
+* [最大后验估计](math/statics/files/map.md)
+---
 * [返回上一级](math/README.md)
