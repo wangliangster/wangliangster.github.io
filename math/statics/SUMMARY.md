@@ -8,6 +8,7 @@
 * [多项分布](math/statics/files/mul.md)
 * [泊松分布](math/statics/files/poisson.md)
 * [正态分布](math/statics/files/gauss.md)
+* [Gamma分布](math/statics/files/gamma.md)
 * [Beta分布](math/statics/files/beta.md)
 * [Dirichlet分布](math/statics/files/dir.md)
 * [共轭分布](math/statics/files/gonge.md)
