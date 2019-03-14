@@ -11,7 +11,7 @@ $$
 
 
 ## 图像
-<div align=center><img src="math/statics/files/chi.svg" width=400, height=300></div>
+<div align=center><img src="math/statics/files/chi.svg" width=500, height=310></div>
 
 ## 期望
 $$

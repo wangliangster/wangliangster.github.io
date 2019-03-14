@@ -9,7 +9,8 @@ $$
 
 不同的参数，有不同形状的概率密度曲线图， 如下:
 
-![beta图](beta.jpg ':size=500*309')
+<!-- ![beta图](beta.jpg ':size=500*309') -->
+<div align=center><img src="math/statics/files/beta.jpg", width=500, height=309></div>
 
 #### 期望
 $$
