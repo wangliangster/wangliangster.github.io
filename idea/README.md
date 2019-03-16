@@ -23,3 +23,12 @@
    </i>
  </font>
 </div>
+
+- 生活本就是“雕虫小技”的有限线性组合
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2019-Feb-27
+   </i>
+ </font>
+</div>
