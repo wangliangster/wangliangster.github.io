@@ -6,3 +6,4 @@
 - [Mac OS系统配置](https://gaoxiaosong.github.io/#/osconfig/?id=%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE)
 
 - [BetterExplained](https://betterexplained.com/)
+- [LaTexCommand例子,通过样例右键实时查看](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
