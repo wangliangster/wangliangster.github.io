@@ -23,7 +23,7 @@ a_{n1} & a_{n2} &...& a_{nn}\\
 \end{array}\right]
 $$
 
-- 如果 $d=|A|\nLeftrightarrow0$（不等号Markdown显示有问题），则线性方程组有解，且是**唯一解**，解可通过系数表为
+- 如果 $d=|A|\mathrlap{\,/}{=} 0$，则线性方程组有解，且是**唯一解**，解可通过系数表为
 $$
 x_1=\frac{d_1}{d}, x_2=\frac{d_2}{d},...x_n=\frac{d_n}{d}
 $$

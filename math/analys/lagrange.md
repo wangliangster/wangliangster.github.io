@@ -34,7 +34,7 @@ p_n(x_i)=f(x_i),  (i=0,1,2,...n）
 $$
 的$n$次多项式:
 $$
-p_n(x)=\sum_{k=0}^{n}[f(x_k)\prod_{i=0 \atop i \nLeftrightarrow k}^{n}\frac{(x-x_i)}{(x_k-x_i)}]
+p_n(x)=\sum_{k=0}^{n}[f(x_k)\prod_{i=0 \atop i \mathrlap{\,/}{=} k}^{n}\frac{(x-x_i)}{(x_k-x_i)}]
 $$
 被称为**Lagrange插值多项式**
 
