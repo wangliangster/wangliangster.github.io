@@ -1,5 +1,6 @@
 * [高等代数](math/algra/README.md)
 ---
+* [勾股定理的多维形式](math/algra/pythagoreans.md)
 * [线性方程组](math/algra/equation.md)
 * [矩阵](math/algra/mat.md)
 * [特征值](math/algra/lambda.md)
