@@ -148,3 +148,43 @@ $$
 - 传递性： 若 $A \cong B，\quad B\cong C$，则有$A \cong C$ (把可逆阵联乘表示就成）
 
 **$A\cong B$ 的充要条件是$A$的秩等于$B$的秩**
+
+
+### 相似合同等价之间的关系
+
+- 等价(只有秩相同)--->合同(秩和正负惯性指数相同)--->相似(秩，正负惯性指数，特征值均相同)，矩阵间关系的进一步深化。
+- 相似矩阵必为等价矩阵，但等价矩阵未必为相似矩阵 
+	- $LR=E$ 的等价矩阵是相似矩阵
+- 合同矩阵必为等价矩阵，等价矩阵未必为合同矩阵 
+- 正惯性指数相同的等价矩阵是合同矩阵
+- 合同矩阵未必是相似矩阵
+- 相似矩阵未必合同
+- 正交相似矩阵必为合同矩阵，正交合同矩阵必为相似矩阵
+- 如果A与B都是n阶实对称矩阵，且有相同的特征根．则A与B既相似又合同
+
+### 参考
+[矩阵的合同相似等价关系及应用](http://wenku.baidu.com/link?url=D0X0pu8GbPo75YrRU1CjumM5rSw1mLS9XidhkKYFs8QTzTb55DZ5Rp0q4EQR3TRYdVqGNUP2QA-WaOWWFre2l24rG-51UeZmoI9fdHTmG-i)
+
+
+
+### 把$n$维向量映射到矩阵坐标系中
+把$n$维向量按**列**排，**左**乘一矩阵，把矩阵的每一**行**看作是一个**基**。
+$$
+\left [ \begin{array}{c} \textcolor{blue}{a_{11}}&\textcolor{blue}{a_{12}}&\textcolor{blue}...&\textcolor{blue}{a_{1n}}\\
+a_{21}&a_{22}&...&a_{2n}\\
+...&...&...&...\\
+a_{n1}&a_{n2}&...&a_{nn} \end{array}\right ] \left[ \begin{array}{c} x_{1}\\x_{2}\\...\\x_{n} \end{array} \right] 
+$$
+
+把$n$维向量按**行**排，**右**乘一矩阵，则矩阵的每一**列**看作是一个**基**。
+$$
+\left [ x_{1}\quad x_{2}\quad...\quad x_{n}\right ]\left [ \begin {array}{c} 
+\textcolor{blue}{a_{11}} & a_{12} &...&a_{1n} \\
+\textcolor{blue}{a_{21}} & a_{12} &...&a_{1n} \\
+\textcolor{blue}{...} &...&...&... \\
+\textcolor{blue}{a_{n1}} & a_{n2} &...&a_{nn} \end{array} \right ] 
+$$
+
+- 若**矩阵**的行列式$|A| \mathrlap{\,/}{=}0$, 则可以把它看成一个$n$维**坐标系**
+- 若矩阵的**基**两两相互垂直，则可以把它看成一个$n$维，两两互相垂直特征**坐标系** 
+- 若矩阵的**基**两两相互垂直,且它的$2$范数模长都为$1$，则可以把它看成一个三维**直角坐标系**的$n$维扩展
