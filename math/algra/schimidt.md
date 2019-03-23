@@ -1,5 +1,5 @@
 ## 施密特(Schimidt)正交化
-**定理：** $n$维殴氏空间中，任意一组基（线性无关）都可以通过线性变换转为等价的一组标准正交基。
+**定理：** $n$维殴氏空间中，任意一组基（线性无关）都可以通过线性变换转为等价的一组**标准正交基**。
 
 **例子**
 把
@@ -28,3 +28,10 @@ $\varepsilon_{2}=(\frac{\sqrt{6}}{6},-\frac{\sqrt{6}}{6},\frac{\sqrt{6}}{3},0)$
 $\varepsilon_{3}=(-\frac{\sqrt{12}}{12},\frac{\sqrt{12}}{12},\frac{\sqrt{12}}{12},\frac{\sqrt{12}}{4})$
 
 $\varepsilon_{4}=(\frac{1}{2},-\frac{1}{2},-\frac{1}{2},\frac{1}{2})$
+
+### 通项公式
+$\beta_{1}=a_{1}$
+
+$\beta_{i}=a_{i} - \sum_{j=1}^{i-1} \frac{(a_{i} \bullet \beta_{j})}{(\beta_{j} \bullet \beta_{j})}\beta_{j},\quad for\quad i\geqq2$
+
+$\large{\varepsilon_{i}}=\frac{1}{\large{||\beta_{i}}||} \beta_{i}$
