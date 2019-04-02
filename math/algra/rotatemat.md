@@ -23,7 +23,7 @@ $$
 \left [ \begin{array}{c} \cos\theta &\sin\theta \\
 -\sin\theta &\cos\theta \end{array} \right ]\left [ \begin{array}{c} r\cos\alpha \\ r\sin\alpha \end{array} \right ]=\left [ \begin{array}{c} r\cos(\alpha-\theta) \\ r\sin(\alpha-\theta) \end{array} \right ]
 $$
-根据正余弦公式，发现结果与几何作图完全吻合， 由此可见，左乘一个这样的**正交矩阵**作用效果就相当于把标准备坐标系旋转了一个角度，而保持测量对象（物理量）不动。
+根据正余弦公式整理，发现结果与几何作图完全吻合， 由此可见，左乘一个这样的**正交矩阵**作用效果就相当于把标准坐标系旋转了一个角度，而保持测量对象（物理量）不动。
 
 ## 镜面反射
 
@@ -32,7 +32,7 @@ $$
 \left [ \begin{array}{c} \cos\theta &\sin\theta \\
 \sin\theta & -\cos\theta \end{array} \right ]
 $$ 
-也是一正交矩阵，仔细观察它两个基的变化，它相当于逆时针旋转$\theta$后再把$y'$轴对折，物理上若不对折，无论如何旋转也达不到运算所得结果，显然这类正交矩阵既包括旋转还包括镜面反射。
+也是一正交矩阵，仔细观察两个基的变化，它相当于逆时针旋转$\theta$后再把$y'$轴对折，物理上若不对折，无论如何旋转也达不到依运算所得的结果，显然这类正交矩阵既包括旋转还包括了镜面反射。
 
 ### 综述
 正交矩阵，其作用效果统统可看作是对标准备直角坐标系**$E$**的**旋转**或**旋转加轴反操作**(镜面反射)
