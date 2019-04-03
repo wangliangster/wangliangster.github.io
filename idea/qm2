@@ -1,0 +1,17 @@
+#!/bin/bash
+# 用来对"八卦扯"的 README.md 文件签名打时标，
+# 与qm的区别是改进了一下，从头部开始
+#
+
+# produce a text file which include name sign with date and html format content
+/Users/liang/Documents/GitHub/wangliangster.github.io/idea/produceadd
+
+if [ $1 ] ; then
+        file=$1
+else
+        file="/Users/liang/Documents/GitHub/wangliangster.github.io/idea/README.md"
+fi
+
+# add text to below of the first - markdown sign 
+sed -i '1,/^-.*/ {/^-.*/r tmpfile
+}' $file

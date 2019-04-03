@@ -1,0 +1,17 @@
+#!/bin/bash
+# 用来产生临时文件，用以添加 
+# 用来对md文件进行签名和打时间标 
+# Liang 2019-03-14
+if [ $1 ] ; then
+	file=$1
+else
+	file="/Users/liang/Documents/GitHub/wangliangster.github.io/idea/tmpfile"
+fi
+
+echo '<div style="text-align: right">' > $file 
+echo ' <font size="3" color="blue">' >> $file
+echo '   <i>'>> $file
+echo '      --- Wang Liang' `date "+ %Y-%b-%d"` >>$file
+echo '   </i>'>> $file
+echo ' </font>'>> $file	
+echo '</div>' >>$file
