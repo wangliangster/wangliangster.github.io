@@ -1,2 +1,3 @@
+- [奇技淫巧话递归](papers/recursion.md)
 - [Fourier Notes3](papers/fourier.md)
 - [图灵测式(Computer Machinery and Intelligence)](papers/turingtest.md)
