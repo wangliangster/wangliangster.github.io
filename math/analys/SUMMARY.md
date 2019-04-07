@@ -8,7 +8,7 @@
 * [Fourier变换](math/analys/fourier.md)
 * [拉普拉斯变换](math/analys/laplace.md)
 * [Z变换](math/analys/z.md)
-* [小波变换]()
+* [小波变换](math/analys/wavelet.md)
 * [条和分析]()
 ---
 * [返回上一级](math/README.md)
