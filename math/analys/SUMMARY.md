@@ -7,7 +7,7 @@
 * [拉格朗日插值](math/analys/lagrange.md)
 * [Fourier变换](math/analys/fourier.md)
 * [拉普拉斯变换](math/analys/laplace.md)
-* [Z变换]()
+* [Z变换](math/analys/z.md)
 * [小波变换]()
 * [条和分析]()
 ---
