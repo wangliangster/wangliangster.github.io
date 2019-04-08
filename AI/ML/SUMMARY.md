@@ -1,5 +1,16 @@
 * [机器学习](AI/ML/README.md)
 ---
 * [谈谈过拟和](AI/ML/overfit/of.md)
+* [Jacobian矩阵](AI/ML/overfit/of.md)
+* [Hessian矩阵](AI/ML/overfit/of.md)
+* [Newton法](AI/ML/overfit/of.md)
+* [梯度下降算法](AI/ML/overfit/of.md)
+* [最小二乘法](AI/ML/overfit/of.md)
+* [逻辑回归](AI/ML/overfit/of.md)
+* [线性回归](AI/ML/overfit/of.md)
+* [决策树](AI/ML/overfit/of.md)
+* [SVM](AI/ML/overfit/of.md)
+* [概率图模型](AI/ML/overfit/of.md)
+* [无监督学习](AI/ML/overfit/of.md)
 ---
 * [返回上一级](AI/README.md)

@@ -1,6 +1,35 @@
 ## 以下纯属闲扯～
 
 有意见，欢迎留言[Issue](https://github.com/wangliangster/wangliangster.github.io/issues)。
+
+- 纯逻辑在没达到登峰造极的程度时一般都比不过搞笑的威力
+</div>
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2019-Apr-08
+   </i>
+ </font>
+</div>
+
+- 看了几天数学书后，莫名的诱生一些对工程师的藐视情绪，这是病吧
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2019-Apr-06
+   </i>
+ </font>
+</div>
+
+- 之于机器学习的数学三大基础：分析，代数，概率与统计第一阶段总结完毕
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2019-Apr-05
+   </i>
+ </font>
+</div>
+
 - 宇宙力学
 	* 物理描述的四大力学，比如**重力**总是向下的
 	* 经济学所描述的力，比如资本总是逐利的，且叫它**逐力**
