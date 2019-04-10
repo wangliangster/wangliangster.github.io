@@ -6,6 +6,7 @@
 
 ## 基础概念
 - 期望，方差，协方差 
+* [概率与频率](math/statics/files/probfreq.md)
 * [PMF/PDF期望方差概念](math/statics/files/basic.md)
 ---
 ## 各种分布汇总
