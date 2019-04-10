@@ -1,7 +1,7 @@
 * [机器学习](AI/ML/README.md)
 ---
 * [谈谈过拟和](AI/ML/overfit/of.md)
-* [Jacobian矩阵](AI/ML/overfit/of.md)
+* [Jacobian矩阵](AI/ML/jacobi.md)
 * [Hessian矩阵](AI/ML/overfit/of.md)
 * [Newton法](AI/ML/overfit/of.md)
 * [梯度下降算法](AI/ML/overfit/of.md)
