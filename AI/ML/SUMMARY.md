@@ -2,7 +2,7 @@
 ---
 * [谈谈过拟和](AI/ML/overfit/of.md)
 * [Jacobian矩阵](AI/ML/jacobi.md)
-* [Hessian矩阵](AI/ML/overfit/of.md)
+* [Hessian矩阵](AI/ML/hessian.md)
 * [Newton法](AI/ML/overfit/of.md)
 * [梯度下降算法](AI/ML/overfit/of.md)
 * [最小二乘法](AI/ML/overfit/of.md)
