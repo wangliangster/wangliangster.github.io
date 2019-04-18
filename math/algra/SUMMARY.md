@@ -3,6 +3,7 @@
 * [勾股定理的多维形式](math/algra/pythagoreans.md)
 * [线性方程组](math/algra/equation.md)
 * [矩阵](math/algra/mat.md)
+* [如何理解矩阵与坐标系的对应关系](math/algra/axiswithmat.md)
 * [矩阵逆的物理意义](math/algra/inversemat.md)
 * [矩阵转置的意义](math/algra/transfermat.md)
 * [正交矩阵的与旋转矩阵的区别](math/algra/rotatemat.md)

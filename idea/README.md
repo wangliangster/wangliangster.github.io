@@ -1,6 +1,15 @@
 ## 以下纯属闲扯～
 
 有意见，欢迎留言[Issue](https://github.com/wangliangster/wangliangster.github.io/issues)。
+- 数学分析这一号称挑战人类终极智商的学科，每个问题要独立完全想清楚它，有时真的很难！最近浏览评论发现，现在有一个很好的研究方法：在网上随便丢一个比较傻二的open问题，然后几乎每个角落都会被分析到。
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2019-Apr-16
+   </i>
+ </font>
+</div>
+
 
 - 纯逻辑在没达到登峰造极的程度时一般都比不过搞笑的威力
 </div>
