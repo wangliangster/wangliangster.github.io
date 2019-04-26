@@ -4,5 +4,6 @@
 *  [代数](math/algra/)
 *  [概率与统计](math/statics/)
 *  [图论](math/graph/)
+*  [其它](math/others/)
 ---
 *  [返回上一级](README.md)
