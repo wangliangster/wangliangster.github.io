@@ -2,6 +2,7 @@
 ---
 
 * [神经网络](AI/DL/axiswithmat.md)
+* [深入理解L1, L2正则化](AI/DL/l1l2.md)
 * [反向传播算法BP](AI/DL/axiswithmat.md)
 * [卷积神经网络CNN](AI/DL/axiswithmat.md)
 * [递归神经网络RNN](AI/DL/axiswithmat.md)
