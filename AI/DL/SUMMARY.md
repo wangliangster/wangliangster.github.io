@@ -12,6 +12,7 @@
 * [Gibbs采样](AI/DL/axiswithmat.md)
 * [蒙特卡罗法](AI/DL/axiswithmat.md)
 * [马尔可夫链](AI/DL/axiswithmat.md)
+* [自动微分Pytorch](AI/DL/autograd.md)
 
 ---
 * [返加上一级](AI/README.md)
