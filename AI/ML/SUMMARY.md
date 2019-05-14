@@ -4,7 +4,7 @@
 * [Jacobian矩阵](AI/ML/jacobi.md)
 * [Hessian矩阵](AI/ML/hessian.md)
 * [Newton法](AI/ML/newton.md)
-* [梯度下降算法](AI/ML/overfit/of.md)
+* [梯度下降算法](AI/ML/graddecent.md)
 * [最小二乘法](AI/ML/leastsquares.md)
 * [逻辑回归](AI/ML/overfit/of.md)
 * [线性回归](AI/ML/LR.md)
