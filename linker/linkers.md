@@ -1,4 +1,4 @@
-# 推荐
+# 墙烈推荐
 ---
 
 - [马同学](https://zhuanlan.zhihu.com/matongxue)
@@ -7,3 +7,4 @@
 
 - [BetterExplained](https://betterexplained.com/)
 - [LaTexCommand例子,通过样例右键实时查看](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
+- [Twins_in_STF_and_MIT](https://stanford.edu/~shervine/teaching/)
