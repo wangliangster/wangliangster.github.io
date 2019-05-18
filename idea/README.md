@@ -1,6 +1,24 @@
 ## 以下纯属闲扯～
 
 有意见，欢迎留言[Issue](https://github.com/wangliangster/wangliangster.github.io/issues)。
+- 再读背影，“我那时真是聪明得过分，...心里暗笑他的迂...”, 让我无地自容
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2019-May-18
+   </i>
+ </font>
+</div>
+
+- 是公式都有被值得记住的道理，多年前我一直忽视了这个
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2019-May-15
+   </i>
+ </font>
+</div>
+
 - 文字的力量，它能够将抽象的遥远回忆用一种更直观的方式呈现，并且可以根据自己的喜好对过去的情节加以演绎甚至篡改，用掩耳盗铃或偷梁换柱的方式来满足自我的内心空虚与遗憾，哪有什么真相，骗得过自己就是真相
 
 - 数学分析这一号称挑战人类终极智商的学科，每个问题要独立完全想清楚它，有时真的很难！最近浏览评论发现，现在有一个很好的研究方法：在网上随便丢一个比较傻二的open问题，然后几乎每个角落都会被分析到。
