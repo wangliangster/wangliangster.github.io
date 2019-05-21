@@ -1,6 +1,16 @@
 ## 以下纯属闲扯～
 
 有意见，欢迎留言[Issue](https://github.com/wangliangster/wangliangster.github.io/issues)。
+- **无论您有多高的天赋，在数学面前都叫做“天赋不足”**, 一个既适合打击别人~，又能安慰自己的**定理**
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2019-May-20
+   </i>
+ </font>
+</div>
+
+
 - 再读背影，“我那时真是聪明得过分，...心里暗笑他的迂...”, 让我无地自容
 <div style="text-align: right">
  <font size="3" color="blue">
