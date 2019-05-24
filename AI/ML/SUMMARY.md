@@ -9,7 +9,9 @@
 * [逻辑回归](AI/ML/overfit/of.md)
 * [线性回归](AI/ML/LR.md)
 * [决策树](AI/ML/overfit/of.md)
-* [SVM](AI/ML/overfit/of.md)
+* [Lagrange乘子法](AI/ML/Lagrange.md)
+* [KKT条件](AI/ML/kkt.md)
+* [SVM](AI/ML/svm.md)
 * [概率图模型](AI/ML/overfit/of.md)
 * [无监督学习](AI/ML/overfit/of.md)
 ---
