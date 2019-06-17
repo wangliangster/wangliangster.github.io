@@ -41,5 +41,5 @@ $f(X)$既可以是线性函数，也可以是非线性函数，$f(x)=0$为**决�
 
  
 
-# 参考
+### 参考
 - [逻辑回归 logistics regression 公式推导](https://zhuanlan.zhihu.com/p/44591359)
