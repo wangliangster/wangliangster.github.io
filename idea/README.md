@@ -1,6 +1,17 @@
 ## 以下纯属闲扯～
 
 有意见，欢迎留言[Issue](https://github.com/wangliangster/wangliangster.github.io/issues)。
+- 天下熙熙攘攘，不为名来，皆为利往！然而，"唯利是图，爆发户"是贬义词; "刻苦好学，金榜题名"确是褒义词！
+看似等价的两端努力为什么显象不平衡？宇称不守衡？ 机器学习是否可以从统计学角度展开研究？加以解释，从而为国家因需指导意识形态转变提供理论指导。
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2019-Jun-18
+   </i>
+ </font>
+</div>
+
+
 - **无论您有多高的天赋，在数学面前都叫做“天赋不足”**, 一个既适合打击别人~，又能安慰自己的**定理**
 <div style="text-align: right">
  <font size="3" color="blue">
