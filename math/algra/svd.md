@@ -7,7 +7,7 @@
 $$
 AV=A[v_{1},v_{2},...v_{n}]=[v_{1},v_{2},...v_{n}]\left[\begin{array}{c} \lambda_{1} &\quad&\quad&\quad\\ \quad &\lambda_{2} &\quad\\ \quad &\quad &...&\quad \\ \quad &\quad &\quad &\lambda_{n} \end{array}\right ]=VD
 $$
-又因为，$V$有$n$个线性无关的特征向量，所以$V^{-1}$存在
+又因为，$V$是$n$个线性无关的特征向量组成的矩阵，所以$V^{-1}$存在
 $$
 A=VDV^{-1}
 $$
