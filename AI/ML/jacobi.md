@@ -1,4 +1,4 @@
-## Jacobian 矩阵
+## Jacobian 矩阵 $f: \Reals^n\mapsto\Reals^m$
 向量值函数：
 
 $$

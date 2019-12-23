@@ -1,4 +1,4 @@
-## Hessian 矩阵
+## Hessian 矩阵 $f: \Reals^n\mapsto\Reals$
 
 [Jacobi矩阵](AI/ML/jacobi.md)的梯度，也就是向量值函数的二阶导数就是**Hessian矩阵**，
 
