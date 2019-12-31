@@ -13,6 +13,7 @@
 * [KKT条件](AI/ML/kkt.md)
 * [SVM](AI/ML/svm.md)
 * [概率图模型](AI/ML/overfit/of.md)
+* [EM算法](AI/ML/EM.md)
 * [马尔可夫链](AI/ML/HMM.md)
 * [无监督学习](AI/ML/overfit/of.md)
 ---
