@@ -1,6 +1,8 @@
 # 马尔可夫链
 马尔可夫链(markov link)是一种特殊的**随机过程**,　它的随机性只与当前状态有关，与过往已发生的状态和将来可能发生的状态都无关。
 
+![HMM](HMM.png ':size=400*247')
+
 ## 隐马尔可夫链(HMM hiden markov methold)
 用来描述一种变化状态是隐藏的，且是离散的马尔可夫过程(**特殊随机过程**)。
 
@@ -30,11 +32,83 @@
 ### 三种问法
 
 - **Evaulation**, Given $\lambda$, 求$P(O|\lambda)$, 已知转移参数$\lambda$，评估一个已经发生的观测序列$O$的概率，用以判断我们的模型参数是不是准
-- **Learning**,  $\lambda$, $\lambda_{MLE} = arg maxP(O|\lambda)$ 已知一个观测序列事实$O$，找出一组参数$\lambda$使得其概率最大, 用$EM$算法
+- **Learning**,  $\lambda$, $\lambda_{MLE} = arg maxP(O|\lambda)$ 已知一个观测序列事实$O$，找出一组参数$\lambda$使得其概率最大, 用[$EM$算法](AI/ML/EM.md)
 - **Decoding**,  $\hat{H}= arg maxP(H|O,\lambda)$, 已知观察序列和参数，求（反编）哪一串隐序列使得这个事实发生的概率最大，Viterbi算法（动态规划）穷举法（舍弃） 
 
+## 公式推导
+- Evaulation **前向**, 给定$\lambda=(\pi,A,B)$　求$P(O|\lambda)$
+$$
+P(O|\lambda) = \sum_{S}^H P(O,S|\lambda) \newline
+=\sum_{S}^H P(O|S,\lambda)P(S|\lambda)
+$$
+
+又因为
+$$
+P(O|S,\lambda)=\prod_{t=1}^T b_{s_t \to o_t}, \; \; s_t \in H , o_t \in R \newline
+P(S|\lambda)=P(s_1s_2...s_T|\lambda)=P(s_T|s_1s_2...s_{T-1},\lambda)P(s_1s_2...s_{T-1},\lambda) \newline
+递归下去
+=\pi(s_1)\prod_{t=2}^T a_{s_ts_{t+1}}, \;\; s_t \in H
+$$
+所以
+$$
+P(O|\lambda)=\underbrace{\sum_{s_1}^H\sum_{s_2}^H...\sum_{s_T}^H}_{\text{O=N的T次方}} \pi(s_1) \prod_{t=2}^T a_{s_ts_{t+1}}\prod_{t=1}^T b_{s_t \to o_t}
+$$
+
+若记
+$$
+\alpha_{t}(i)=P(o_1...o_t,s_t=h_i|\lambda) \newline
+\alpha_{T}(i)=P(O,s_T=h_i|\lambda) \newline
+P(O|\lambda) = \sum_{i=1}^N P(O,S_T=h_i|\lambda)\newline
+=\sum_{i=1}^N \alpha_{T}(i)
+$$
+
+展开
+$$
+\alpha_{t+1}(j)=P(o_1...o_to_{t+1},s_{t+1}=h_j|\lambda) \newline
+=\sum_{i=1}^N P(o_1...o_to_{t+1},s_t=h_i s_{t+1}=h_j|\lambda) \newline
+=\sum_{i=1}^N P(o_{t+1}|o_1...o_t,s_t=h_i s_{t+1}=h_j,\lambda) P(o_1...o_t,s_t=h_i s_{t+1}=h_j,\lambda) \newline
+=\sum_{i=1}^N P(o_{t+1}|s_{t+1}=h_j) P(o_1...o_t,s_t=h_i s_{t+1}=h_j,\lambda) \newline
+=\sum_{i=1}^N P(o_{t+1}|s_{t+1}=h_j) P(s_{t+1}=h_j|s_t=h_i,\lambda) P(o_1...o_t,s_t=h_i,\lambda) \newline
+
+=\sum_{i=1}^N b_{j \to o_{t+1}} a_{ij} \alpha_{t}(i)
+
+$$
+
+- Evaulation **后向**, 给定$\lambda=(\pi,A,B)$　求$P(O|\lambda)$
+
+记
+$$
+\beta_{t}(i) = P(o_{t+1}...o_T|s_t=h_i,\lambda) \newline
+...
+\newline
+\beta_{1}(i) = P(o_2...o_T|s_1=h_i,\lambda) \newline
+
+P(O|\lambda)=P(o_1...o_T|\lambda) \newline
+=\sum_{i=1}^N P(o_1...o_T,s_1=h_i, \lambda) \newline
+=\sum_{i=1}^N P(o_1...o_T|s_1=h_i)P(s_1=h_i) \newline
+=\sum_{i=1}^N P(o_1...o_T|s_1=h_i)\pi(s_1) \newline
+
+反向考虑：
+=\sum_{i=1}^N P(o_1|o_2...o_T,s_1=h_i)P(o_2...o_T,s_1=h_i)\pi(s_1) \newline
+=\sum_{i=1}^N P(o_1 | s_1=h_i)\beta_1(i) \pi(s_1=h_i)
+=\sum_{i=1}^N b_{s_1=h_i \to o_1} \beta_1(i)\pi(s_1=h_i)
+
+
+
+
+$$
+
+
 ## Viterbi算法
+
+Viterbi算法　类似动态规划思想，求出每个子序列的最大值进而逐步得到整个序列发生的最大值。它相比穷举法对有很大的改进。
+
+对于一个已经发生的观察序列$O=o_1o_2...o_T$, 要找到某一隐序列$s_1s_2...s_T, s_i \in H$ 使发生的概率最大
+- 穷举法，每一个$s_i$都可以有$N$种可能，共有$N^T$种序列，根据参数，算出每一种序列的发观事实的概率，取最大的。
+- Viterbi 算法，$o_1$找出最大概率对应的$s_1$,固定！$s_1 \to s_2=h_i \to o_2$选一条最大的固定, $s_1s_2\to s_3=h_i \to o_3$选一条最大的，这样就有$T*N$的计算复杂度。
 
 
 ### 参考
 - [如何用简单易懂的例子解释隐马尔可夫模型?](https://www.zhihu.com/question/20962240/answer/33438846)
+- [隐马尔科夫模型（HMM）—— 数学推导](https://blog.csdn.net/qq_27586341/article/details/94602772#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%9Ahmmlearn)
+- [bilibili](https://www.bilibili.com/video/av32471608?p=8)
