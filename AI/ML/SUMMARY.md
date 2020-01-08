@@ -15,6 +15,8 @@
 * [概率图模型](AI/ML/overfit/of.md)
 * [EM算法](AI/ML/EM.md)
 * [马尔可夫链](AI/ML/HMM.md)
+* [CRF](AI/ML/crf.md)
+* [LDA](AI/ML/LDA.md)
 * [无监督学习](AI/ML/overfit/of.md)
 ---
 * [返回上一级](AI/README.md)
