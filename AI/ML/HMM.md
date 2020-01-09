@@ -33,22 +33,22 @@
 
 - **Evaulation**, Given $\lambda$, 求$P(O|\lambda)$, 已知转移参数$\lambda$，评估一个已经发生的观测序列$O$的概率，用以判断我们的模型参数是不是准
 - **Learning**,  $\lambda$, $\lambda_{MLE} = arg maxP(O|\lambda)$ 已知一个观测序列事实$O$，找出一组参数$\lambda$使得其概率最大, 用[$EM$算法](AI/ML/EM.md)
-- **Decoding**,  $\hat{H}= arg maxP(H|O,\lambda)$, 已知观察序列和参数，求（反编）哪一串隐序列使得这个事实发生的概率最大，Viterbi算法（动态规划）穷举法（舍弃） 
+- **Decoding**,  $\hat{H}= arg maxP(H|O;\lambda)$, 已知观察序列和参数，求（反编）哪一串隐序列使得这个事实发生的概率最大，Viterbi算法（动态规划）穷举法（舍弃） 
 
 ## 公式推导
 #### Evaulation **前向**, 给定$\lambda=(\pi,A,B)$　求$P(O|\lambda)$
 $$
 P(O|\lambda) = \sum_{S}^H P(O,S|\lambda) \newline
-=\sum_{S}^H P(O|S,\lambda)P(S|\lambda)
+=\sum_{S}^H P(O|S;\lambda)P(S|\lambda)
 \tag{1}
 $$
 
 又因为
 $$
-P(O|S,\lambda)=\prod_{t=1}^T b_{s_t \to o_t}, \; \; s_t \in H , o_t \in R \tag{2}
+P(O|S;\lambda)=\prod_{t=1}^T b_{s_t \to o_t}, \; \; s_t \in H , o_t \in R \tag{2}
 $$
 $$
-P(S|\lambda)=P(s_1s_2...s_T|\lambda)=P(s_T|s_1s_2...s_{T-1},\lambda)P(s_1s_2...s_{T-1},\lambda) \newline
+P(S|\lambda)=P(s_1s_2...s_T|\lambda)=P(s_T|s_1s_2...s_{T-1};\lambda)P(s_1s_2...s_{T-1};\lambda) \newline
 递归下去
 =\pi(s_1)\prod_{i=1}^{T-1} a_{s_{T-i}s_{T-i+1}}, \;\; s_i \in H\newline 
 整理得
@@ -104,27 +104,63 @@ $$
 
 #### Evaulation **后向**, 给定$\lambda=(\pi,A,B)$　求$P(O|\lambda)$
 
-记
+若记
 $$
-\beta_{t}(i) = P(o_{t+1}...o_T|s_t=h_i,\lambda) \newline
-...
-\newline
-\beta_{1}(i) = P(o_2...o_T|s_1=h_i,\lambda) \newline
+\tag{9}
+\beta_{t}(i) = P(o_{t+1}...o_T|s_t=h_i;\lambda)
+$$
+则有
+$$
+\tag{10}
+\beta_{1}(i) = P(o_2...o_T|s_1=h_i;\lambda)
+$$
+同时
+$$
+\tag{11}
+\beta_{T-1}(i)=P(o_T|s_{T-1}=h_i;\lambda) \newline
+=\sum_{j=1}^N P(o_T,s_T=h_j|s_{T-1}=h_i;\lambda) \newline
+=\sum_{j=1}^N P(o_T|s_T=h_j|s_{T-1}=h_i;\lambda) P(s_T=h_j|s_{T-1}=h_i;\lambda) \newline
+=\sum_{j=1}^N P(o_T|s_T=h_j,s_{T-1}=h_i;\lambda) a_{ij} \newline
+=\sum_{j=1}^N b_{j\to o_T} a_{ij}
+$$
+现在我们列出递推式 $\beta_t$ 与$\beta_{t+1}$的关系
 
+$$
+\tag{12}
+\beta_{t}(i)=P(o_{t+1}...o_T|s_t=h_i;\lambda) \newline
+=\sum_{j=1}^N P(o_{t+1}...o_T,s_{t+1}=h_j|s_t=h_i;\lambda) \newline
+=\sum_{j=1}^N P(o_{t+1}|o_{t+2}...o_T,s_{t+1}=h_j|s_t=h_i;\lambda) P(o_{t+2}...o_T,s_{t+1}=h_j|s_t=h_i;\lambda) \newline
+=\sum_{j=1}^N b_{j \to o_{t+1}} P(o_{t+2}...o_T|s_{t+1}=h_j,s_t=h_i) P(s_t=h_i,s_{t+1}=h_j) \newline
+=\sum_{j=1}^N b_{j \to o_{t+1}} \beta_{t+1}(j) a_{ij}
+$$
+
+而所求为
+$$
+\tag{13}
 P(O|\lambda)=P(o_1...o_T|\lambda) \newline
-=\sum_{i=1}^N P(o_1...o_T,s_1=h_i, \lambda) \newline
-=\sum_{i=1}^N P(o_1...o_T|s_1=h_i)P(s_1=h_i) \newline
-=\sum_{i=1}^N P(o_1...o_T|s_1=h_i)\pi(s_1) \newline
+=\sum_{i=1}^N P(o_1...o_T,s_1=h_i;\lambda) \newline
+=\sum_{i=1}^N P(o_1...o_T|s_1=h_i;\lambda)P(s_1=h_i) \newline
+=\sum_{i=1}^N P(o_1...o_T|s_1=h_i;\lambda)\pi(s_1) \newline
 
 反向考虑：
-=\sum_{i=1}^N P(o_1|o_2...o_T,s_1=h_i)P(o_2...o_T,s_1=h_i)\pi(s_1) \newline
-=\sum_{i=1}^N P(o_1 | s_1=h_i)\beta_1(i) \pi(s_1=h_i)
+=\sum_{i=1}^N P(o_1|o_2...o_T,s_1=h_i;\lambda)P(o_2...o_T,s_1=h_i;\lambda)\pi(s_1) \newline
+=\sum_{i=1}^N P(o_1 | s_1=h_i)\beta_1(i) \pi(s_1=h_i) \newline
 =\sum_{i=1}^N b_{s_1=h_i \to o_1} \beta_1(i)\pi(s_1=h_i)
-
-
-
-
 $$
+
+##### 计算过程：
+
+- **step1:** 计算$\beta_{T-1}(i) \; \;  from \;\; i=1 \to N$ 依据公式$(11)$
+- **step2:** 计算$\beta_{T-2}(j) \; \;  from \;\; j=1 \to N$ 依据**step1** 和公式$(12)$
+- ......依据上一步和公式$(12)$
+- **stepT-1:** 计算$\beta_{1}(k) \; \;  from \;\; k=1 \to N$ 依据上一步和公式$(12)$
+- **finally** 依公式$(13)$得 $P(O∣\lambda)$
+
+## Learning 问题
+
+todo
+## Decoding 问题
+todo
 
 
 ## Viterbi算法
