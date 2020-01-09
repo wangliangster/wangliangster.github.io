@@ -19,7 +19,7 @@
 	- 初始状态概率分布，即第一个隐状态$s_1$为各状态$H=\{h_1,h_2,...h_N\}$的概率分别是多少。
 - $A中的元素a_{ij}$ :
 	- 当前时间点它的状态是$h_i$，下一个时间点变成$h_j$的概率，因为$H$有$N$个元素，所以它是个$N\times N$方阵，每一个时间点的转移矩阵都是相同的，此为**时间**无关性。
-- $B中元素b_{ij}=P(o_t=r_j|s_t=h_i)$ :
+- $B中元素b_{ij}=P(o_t=r_j|s_t=h_i)=b_{s_t \to o_t}$ :
 	- 它是一个$N\times M$矩阵，隐状态$h_i$到观测值$r_j$的概率，也是与时间先后无关的。
 
 
@@ -36,45 +36,73 @@
 - **Decoding**,  $\hat{H}= arg maxP(H|O,\lambda)$, 已知观察序列和参数，求（反编）哪一串隐序列使得这个事实发生的概率最大，Viterbi算法（动态规划）穷举法（舍弃） 
 
 ## 公式推导
-- Evaulation **前向**, 给定$\lambda=(\pi,A,B)$　求$P(O|\lambda)$
+#### Evaulation **前向**, 给定$\lambda=(\pi,A,B)$　求$P(O|\lambda)$
 $$
 P(O|\lambda) = \sum_{S}^H P(O,S|\lambda) \newline
 =\sum_{S}^H P(O|S,\lambda)P(S|\lambda)
+\tag{1}
 $$
 
 又因为
 $$
-P(O|S,\lambda)=\prod_{t=1}^T b_{s_t \to o_t}, \; \; s_t \in H , o_t \in R \newline
+P(O|S,\lambda)=\prod_{t=1}^T b_{s_t \to o_t}, \; \; s_t \in H , o_t \in R \tag{2}
+$$
+$$
 P(S|\lambda)=P(s_1s_2...s_T|\lambda)=P(s_T|s_1s_2...s_{T-1},\lambda)P(s_1s_2...s_{T-1},\lambda) \newline
 递归下去
-=\pi(s_1)\prod_{t=2}^T a_{s_ts_{t+1}}, \;\; s_t \in H
-$$
+=\pi(s_1)\prod_{i=1}^{T-1} a_{s_{T-i}s_{T-i+1}}, \;\; s_i \in H\newline 
+整理得
+=\pi(s_1)\prod_{t=1}^{T-1} a_{s_ts_{t+1}}, \;\; s_t \in H
+\tag{3}$$
 所以
 $$
-P(O|\lambda)=\underbrace{\sum_{s_1}^H\sum_{s_2}^H...\sum_{s_T}^H}_{\text{O=N的T次方}} \pi(s_1) \prod_{t=2}^T a_{s_ts_{t+1}}\prod_{t=1}^T b_{s_t \to o_t}
+P(O|\lambda)=\underbrace{\sum_{s_1}^H\sum_{s_2}^H...\sum_{s_T}^H}_{\text{O=N的T次方}} \pi(s_1) \prod_{t=1}^{T－1} a_{s_ts_{t+1}}\prod_{t=1}^T b_{s_t \to o_t}
+\tag{4}
 $$
 
 若记
 $$
-\alpha_{t}(i)=P(o_1...o_t,s_t=h_i|\lambda) \newline
-\alpha_{T}(i)=P(O,s_T=h_i|\lambda) \newline
+\alpha_{t}(i)=P(o_1...o_t,s_t=h_i|\lambda) 
+\tag{5}
+$$
+则有：
+$$
+\tag{6}
+\alpha_{1}(i)=P(o_1,s_1=h_i|\lambda)=P(o_1|s_1=h_i)P(s_1=h_i)\newline 
+=b_{i\to o_1}\pi(s_1=h_i) \newline
+\alpha_{T}(i)=P(O,s_T=h_i|\lambda) 
+$$
+$$
+\tag{7}
 P(O|\lambda) = \sum_{i=1}^N P(O,S_T=h_i|\lambda)\newline
 =\sum_{i=1}^N \alpha_{T}(i)
 $$
 
 展开
 $$
+\tag{8}
 \alpha_{t+1}(j)=P(o_1...o_to_{t+1},s_{t+1}=h_j|\lambda) \newline
 =\sum_{i=1}^N P(o_1...o_to_{t+1},s_t=h_i s_{t+1}=h_j|\lambda) \newline
-=\sum_{i=1}^N P(o_{t+1}|o_1...o_t,s_t=h_i s_{t+1}=h_j,\lambda) P(o_1...o_t,s_t=h_i s_{t+1}=h_j,\lambda) \newline
-=\sum_{i=1}^N P(o_{t+1}|s_{t+1}=h_j) P(o_1...o_t,s_t=h_i s_{t+1}=h_j,\lambda) \newline
-=\sum_{i=1}^N P(o_{t+1}|s_{t+1}=h_j) P(s_{t+1}=h_j|s_t=h_i,\lambda) P(o_1...o_t,s_t=h_i,\lambda) \newline
+=\sum_{i=1}^N P(o_{t+1}|o_1...o_t,s_t=h_i s_{t+1}=h_j;\lambda) P(o_1...o_t,s_t=h_i s_{t+1}=h_j;\lambda) \newline
+=\sum_{i=1}^N P(o_{t+1}|s_{t+1}=h_j) P(o_1...o_t,s_t=h_i s_{t+1}=h_j;\lambda) \newline
+=\sum_{i=1}^N P(o_{t+1}|s_{t+1}=h_j) P(s_{t+1}=h_j|s_t=h_i;\lambda) P(o_1...o_t,s_t=h_i;\lambda) \newline
 
 =\sum_{i=1}^N b_{j \to o_{t+1}} a_{ij} \alpha_{t}(i)
 
 $$
 
-- Evaulation **后向**, 给定$\lambda=(\pi,A,B)$　求$P(O|\lambda)$
+##### 计算过程：
+	
+- **step1:** 计算$\alpha_{1}(i) \; \;  from \;\; i=1 \to N$ 依据公式$(6)$
+- **step2:** 计算$\alpha_{2}(j) \; \;  from \;\; j=1 \to N$ 依据**step1** 和公式$(8)$
+- ......依据上一步和公式$(8)$
+- **stepT:** 计算$\alpha_{T}(k) \; \;  from \;\; k=1 \to N$ 依据上一步和公式$(8)$
+- **finally** 依公式$(7)$得 $P(O∣\lambda)$
+
+
+
+
+#### Evaulation **后向**, 给定$\lambda=(\pi,A,B)$　求$P(O|\lambda)$
 
 记
 $$
