@@ -236,7 +236,13 @@ $$
 \pi_i^{t+1} =\frac{P(O,s_1=h_i|\lambda^t)}{P(O|\lambda^t)}
 
 $$
+由连加性同理可得
+$$
 
+a_{ij}^{t+1}=\frac{P(O,s_{t+1}=h_j|s_t=h_i)}{P(O|\lambda^t)}=\frac{a_{ij}^{t}}{P(O|\lambda^t)}\newline
+b_{s_t=h_j\to o_t=r_k}^{t+1}=\frac{b_{s_t=h_j\to o_t=r_k}^t}{P(O|\lambda^t)}
+
+$$
 
 
 ## Decoding 问题
