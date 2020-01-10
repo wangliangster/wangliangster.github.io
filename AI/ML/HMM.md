@@ -158,14 +158,94 @@ $$
 
 ## Learning 问题
 
-todo
+[EM算法](AI/ML/EM.md)
+
+$$
+\tag{14}
+\theta^{t+1}=\underset{\theta}{\operatorname{argmax}} \int_{z} log P(X,Z|\theta) P(Z|X,\theta^t)dz
+$$
+对应到HMM的参数$\lambda=(\pi, A, B)$
+
+$$
+\tag{15}
+\lambda^{t+1}=\underset{\lambda}{\operatorname{argmax}} \sum_{S}^H log P(O,S|\lambda) P(S|O,\lambda^t)
+$$
+
+又因为
+$$
+P(S|O,\lambda^t)=\frac{P(S,O|\lambda^t)}{P(O,\lambda^t)}
+$$
+中分母$P(O,\lambda^t)$是个定值，对$(15)$不影响，所以目标可变为
+
+$$
+\tag{16}
+\lambda^{t+1}=\underset{\lambda}{\operatorname{argmax}} \sum_{S}^H log P(O,S|\lambda) P(S,O|\lambda^t)
+$$
+
+所以我们可以定义目标函数为：
+$$
+\tag{17}
+f(\lambda, \lambda^t)=\sum_{S}^H log P(O,S|\lambda) P(S,O|\lambda^t) \newline
+代入(4)式　\newline
+=\sum_{S}^H [(log \pi(s_1) + \bcancel{\sum_{t=1}^{T－1} log a_{s_ts_{t+1}}}+ \bcancel{\sum_{t=1}^T log b_{s_t \to o_t}})P(S,O|\lambda^t)]
+$$
+
+为了简便计算，我们先只考虑$\pi(s_1)$, 因为后两项是连加性，所以整个函数的最值与第一项的最值也是一致的，　公式$(17)$可进一步简化为：
+
+$$
+\tag{18}
+\sum_{S}^H [log \pi(s_1)P(S,O|\lambda^t)] \newline
+=\sum_{s_1}^H [log \pi(s_1)P(O,s_1|\lambda^t)] \newline
+=\sum_{i=1}^N [log \pi(s_1=h_i)P(O,s_1=h_i|\lambda^t)]
+$$
+
+问题转化为约束条件下的极值问题：
+$$
+\begin{cases}
+   \sum_{i=1}^N [log \pi(s_1=h_i)P(O,s_1=h_i|\lambda^t)]   \\
+   s.t \;\; \sum_{i=1}^N \pi(s_1=h_i)=1 
+\end{cases}
+$$
+
+利用[Lagrange乘子法](AI/ML/Lagrange.md)
+
+$$
+\tag{19}
+L(\pi, \eta)=\sum_{i=1}^N [log \pi(s_1=h_i)P(O,s_1=h_i|\lambda^t)] + \eta(\sum_{i=1}^N \pi(s_1=h_i)-1)
+$$
+
+
+$$
+\tag{20}
+\frac{\partial L}{\partial \pi_i}=\frac{1}{\pi_i}P(O,s_1=h_i|\lambda^t) + \eta =0
+$$
+
+两边乘以$\pi_i$ 再把所有$\pi_i$进行求和得：
+
+$$
+
+\sum_{i=1}^N P(O,s_1=h_i|\lambda^t) + \eta =0 \newline
+
+\eta = -\sum_{i=1}^N P(O,s_1=h_i|\lambda^t) \newline
+代入(20)得 \newline
+
+\pi_i =\frac{P(O,s_1=h_i|\lambda^t)}{\sum_{i=1}^N P(O,s_1=h_i|\lambda^t)}
+$$
+最终得
+$$
+\pi_i^{t+1} =\frac{P(O,s_1=h_i|\lambda^t)}{P(O|\lambda^t)}
+
+$$
+
+
+
 ## Decoding 问题
 todo
 
 
 ## Viterbi算法
 
-Viterbi算法　类似动态规划思想，求出每个子序列的最大值进而逐步得到整个序列发生的最大值。它相比穷举法对有很大的改进。
+Viterbi算法　类似动态规划思想，求出每个子序列的最大值进而逐步得到整个序列发生的最大值。它相比穷举法对时间复杂度有很大的改进。
 
 对于一个已经发生的观察序列$O=o_1o_2...o_T$, 要找到某一隐序列$s_1s_2...s_T, s_i \in H$ 使发生的概率最大
 - 穷举法，每一个$s_i$都可以有$N$种可能，共有$N^T$种序列，根据参数，算出每一种序列的发观事实的概率，取最大的。
