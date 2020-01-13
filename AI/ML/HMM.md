@@ -246,7 +246,45 @@ $$
 
 
 ## Decoding 问题
-todo
+$$
+\tag{21}
+P(S|O,\lambda) \newline
+S=s_1s_2s_3...s_T \newline
+O=o_1o_2o_3...o_T
+$$
+
+首先定义
+
+$$
+\delta_{t} (i) = \underset{index(s_1s_2...s_{t})}{\operatorname{max}} P(s_1s_2...s_t=h_i|o_1o_2...o_t)
+$$
+表示$t$时刻，隐状态$s_t=h_i$，为最符合已发生事实的概率标记,
+
+则有
+$$
+
+\delta_{t+1} (j) = \underset{index(s_1s_2...s_{t+1})}{\operatorname{max}} P(s_1s_2...s_{t+1}=h_j|o_1o_2...o_{t+1}) \newline
+=\underset{1<=i<=N}{\operatorname{max}} \delta_{t}(i) a_{ij} b_{j\to o_{t+1}}
+
+$$
+
+$$
+\delta_{1}(i)=\underset{index(s_1)}{\operatorname{max}}P(s_1=h_i|o_1)
+$$
+
+令
+$$
+\varphi(t)=\arg \underset{1<=i<=N}{\operatorname{max}} \delta_t (i)=i
+$$
+
+所以有
+
+$$
+\varphi(1)\varphi(2)...\varphi(T) = index(S) = \underset{index(S)}{\operatorname{max}}P(S|O,\lambda) 
+$$
+
+计算步骤由$1,2,...T$即解码的隐状态序列，这种方法也叫Viterbi算法
+
 
 
 ## Viterbi算法
