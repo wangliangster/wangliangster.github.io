@@ -1,6 +1,25 @@
 ## 以下纯属闲扯～
 
 有意见，欢迎留言[Issue](https://github.com/wangliangster/wangliangster.github.io/issues)。
+
+- 这些年，一直沉浸在逻辑世界的泥潭里无法自拔，忽略了对非逻辑（如爱，感动，开心，悲伤...）的思考；这也解释了为什么有些人看着其实挺“笨”，但若对非逻辑把握得好的话，也一样活得很好，很好。
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2020-Jan-16
+   </i>
+ </font>
+</div>
+
+- 人生就是个约束条件下的凸优化问题！找不到解析解的话用梯度下降法步步逼近就好了？关键是目标函数要清晰，不能轻易改变！无论谁，最终都会，且一定会意识到：最大特征值对应的特征方向一定是心❤️的方向？
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2020-Jan-1
+   </i>
+ </font>
+</div>
+
 - 天下熙熙攘攘，不为名来，皆为利往！然而，"唯利是图，爆发户"是贬义词; "刻苦好学，金榜题名"确是褒义词！
 看似等价的两端努力为什么显象不平衡？宇称不守衡？ 机器学习是否可以从统计学角度展开研究？加以解释，从而为国家因需指导意识形态转变提供理论指导。
 <div style="text-align: right">
