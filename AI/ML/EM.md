@@ -29,7 +29,17 @@ $$
 \geq \sum_{i=1}^n \sum_{z_i}Q(z_i) log\frac{P(x_i， z_i;\theta)}{Q(z_i)}
 $$
 
-- 最后一步利用$Jensen$不等式把**$log和函数$** 变为**$和log函数$**，　利于计算，通过交替更新$z$和$\theta$， 抬升$Jensen函数$与原函数的极值，直至收敛。
+- 最后一步利用$Jensen$不等式把**$log和函数$** 变为**$和log函数$**。
+因为，$f(y)=log y$是**凹函数**，所以Jensen不等式反号，令$y_i=\frac{P(x_i,z_i;\theta)}{Q(z_i)}$
+上式即$f(E(y)) \geq E(f(y))$，通过交替更新$z$和$\theta$， 通过寻找$Jensen$函数下界的极大值，从而达到找到原函数(*凹*)的极大值的目的，直至收敛（在端点）。
+- 退一步讲，即使找到的不是极值，满足$Jensen$函数下界递增的参数也是使原函数向极值点奔去的参数。
+
+更进一步拆分上式:
+$$
+\geq \sum_{i=1}^n \sum_{z_i}Q(z_i)[log P(x_i， z_i;\theta)-log Q(z_i)]
+
+$$
+
 
 ### Jensen不等式
 设$f$是定义域为$R$的函数
@@ -38,7 +48,7 @@ $$
 - 当$X$是向量时，若其[$Hessian$](AI/ML/hessian.md)矩阵$H$是半正定的，那么$f$是凸函数。
 
 
-如果$f$是凸函数，$X$是随机变量，那么：$E[f(X)] \geq f(E[X])$，通俗的说法是函数值的期望大于等于期望的函数值。
+如果$f$是凸函数(有**极小值**,**凹函数**有极大值)，$X$是随机变量，那么：$E[f(X)] \geq f(E[X])$，通俗的说法是函数值的期望大于等于期望的函数值。[算术平均大于等于几何平均](http://mathworld.wolfram.com/JensensInequality.html)
 
 ## pLSA 如何用EM算法
 Probabilistic latent semantic analysis (PLSA)， also known as probabilistic latent semantic indexing (PLSI)
