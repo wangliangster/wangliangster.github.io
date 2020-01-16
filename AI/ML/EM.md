@@ -49,6 +49,7 @@ $$
 - 随机初始化一个$\theta^0$, 然后要找到一组$\lambda_i=Q(z_i)$使得$5$式最大, 此时$5$式的后半部分$log Q(z_i)$是会影响$Q(z_i)$的选择的（为了使整个$5$达到最大）。而一旦$Q(z_i)$选定了之后
 - 目标函数就变成了以$\theta$为参数的函数，而此极大化过程与$5$式的后半部分无关，为了简化计算，一般都把后半部分略去了，从而目标函数变成了：
 $$
+\tag{6}
 \theta^{t+1} =\underset{\theta^t}{\operatorname{argmax}}\sum_{k=1}^n \sum_{z_i}Q(z_i)log P(x_k， z_i;\theta^t)
 $$ 
 
@@ -60,6 +61,7 @@ $$
 - 如果对于任意的$x，f(x)$的二次导数$f''(x) \geq 0$，那么$f$是凸函数。
 - 当$X$是向量时，若其[$Hessian$](AI/ML/hessian.md)矩阵$H$是半正定的，那么$f$是凸函数。
 
+![Jensen](Jensen.png ':size=300*200')
 
 如果$f$是凸函数(有**极小值**,**凹函数**有极大值)，$X$是随机变量，那么：$E[f(X)] \geq f(E[X])$，通俗的说法是函数值的期望大于等于期望的函数值。[算术平均大于等于几何平均](http://mathworld.wolfram.com/JensensInequality.html)
 
@@ -67,11 +69,11 @@ $$
 Probabilistic latent semantic analysis (PLSA)， also known as probabilistic latent semantic indexing (PLSI)
 
 
-$w_j$ :单词word，可统计的量
+$w_j$ :单词word，可统计的量，总共有$N$个不同的单词
 
-$z_k$ :主题，可假设($k$值)，可通过训练得到的隐变量
+$z_k$ :主题，可假设($K$个不同的主题)，可通过训练得到的隐变量
 
-$d_i$ :文档
+$d_i$ :文档，总共有$M$篇文档，样本总数
 
 
 $$P(w_j|z_k)$$ 隐变量$z_k$假设固定条件下， 每一个单词的分布， 当$k$取一系列值$(1，2，3...)$时，就成了一个矩阵$A$， 矩阵中的元素$a_{kj}$表示第$k$个主题中第$j$个词的出现的概率，同理
@@ -86,13 +88,13 @@ $$
 
 整个语料库生成的对数似然函数为：
 
-$$\ell(L(\theta))=\ell(L(A，B))=\sum_{k=1}^M\sum_{j=1}^N n(d_i，w_j)log P(d_i，w_j) \newline
-=\sum_{k=1}^M\sum_{j=1}^N n(d_i，w_j)[log P(d_i)+log\sum_{k=1}^K a_{kj}b_{ik}]
+$$\ell(L(\theta))=\ell(L(A，B))=\sum_{i=1}^M\sum_{j=1}^N n(d_i，w_j)log P(d_i，w_j) \newline
+=\sum_{i=1}^M\sum_{j=1}^N n(d_i，w_j)[log P(d_i)+log\sum_{k=1}^K a_{kj}b_{ik}]
 \newline
-=\sum_{k=1}^M n(d_i)[log P(d_i)+\sum_{j=1}^N \frac{n(d_i，w_j)}{n(d_i)} log\sum_{k=1}^K a_{kj}b_{ik}]
+=\sum_{i=1}^M n(d_i)[log P(d_i)+\sum_{j=1}^N \frac{n(d_i，w_j)}{n(d_i)} log\sum_{k=1}^K a_{kj}b_{ik}]
 $$
 
-其中　$n(d_i)$ 表示第$i$篇文档词的总数，$n(d_i，w_j)$表示文档$i$中第$j$个词的个数。
+其中　$n(d_i)$ 表示第$i$篇文档词的总数，$n(d_i，w_j)$表示文档$i$中第$j$个词的个数, $\frac{n(d_i,w_j)}{n(d_i)}$表示第$i$篇文档中第$j$个词的词频。
 
 
 上式中只有$a_{kj}$(表示第$k$个主题中第$j$个词的出现的概率)， $b_{ik}$(表示第$i$篇文档中各主题的分布)是变量，其它都是常数，目标是最大化似然函数$\ell(L(\theta))$。
@@ -107,11 +109,12 @@ $$
 于是问题转化为约束条件下的极值问题，可用[Lagrange乘子法](AI/ML/Lagrange.md) 解得:
 
 $$
-a_{kj}=\frac{\sum_{k=1}^M n(d_i,w_j)P(z_k|d_i,w_j)}{\sum_{o=1}^N\sum_{k=1}^M n(d_i,w_o)P(z_k|d_i,w_o)} \newline 
+a_{kj}=\frac{\sum_{i=1}^M n(d_i,w_j)P(z_k|d_i,w_j)}{\sum_{o=1}^N\sum_{i=1}^M n(d_i,w_o)P(z_k|d_i,w_o)} \newline 
 
 b_{ik}=\frac{\sum_{j=1}^N n(d_i,w_j)P(z_k|d_i,w_j)}{n(d_i)}
 $$
 
+利用$EM$算法，得出矩阵$A,B$ 也就得到了**“主题-词”**和**“文档-主题”**的分布。
 
 ## 参考
 - [pLSA Wiki](https://en.wikipedia.org/wiki/Probabilistic_latent_semantic_analysis)
