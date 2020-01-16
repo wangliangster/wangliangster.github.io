@@ -6,40 +6,53 @@
 
 ### 目标函数
 $$
-L(\theta)=L(x_1， x_2， x_3，...x_n;\theta)=\prod_{i=1}^n P(x_i;\theta)， \theta \in \varTheta
+\tag{1}
+L(\theta)=L(x_1， x_2， x_3，...x_n;\theta)=\prod_{k=1}^n P(x_k;\theta)， \theta \in \varTheta
 $$
 
-样本$x_i$之间相互独立，所以用乘法
+样本$x_k$之间相互独立，所以用乘法
 
 - 取对数把连乘变为连加
 $$
-\ell(L(\theta))=\sum_{i=1}^n logP(x_i;\theta)
+\tag{2}
+\ell(L(\theta))=\sum_{k=1}^n logP(x_k;\theta)
 $$
 
 - 加入隐变量$z$考虑
 $$
-\sum_{i=1}^n log \sum_{z}P(x_i， z;\theta)
+\tag{3}
+\sum_{k=1}^n log \sum_{z}P(x_k， z;\theta)
 $$
 
 - 把隐变量看成分布$Q(z)$
 $$
-\ell(L(\theta))=\sum_{i=1}^n log [ \sum_{z_i}P(x_i， z_i;\theta)] \newline 
-=\sum_{i=1}^n log [ \sum_{z_i}Q(z_i)\frac{P(x_i， z_i;\theta)}{Q(z_i)}]
+\tag{4}
+\ell(L(\theta))=\sum_{k=1}^n log [ \sum_{z_i}P(x_k， z_i;\theta)] \newline 
+=\sum_{k=1}^n log [ \sum_{z_i}Q(z_i)\frac{P(x_k， z_i;\theta)}{Q(z_i)}]
 \newline
-\geq \sum_{i=1}^n \sum_{z_i}Q(z_i) log\frac{P(x_i， z_i;\theta)}{Q(z_i)}
+\geq \sum_{k=1}^n \sum_{z_i}Q(z_i) log\frac{P(x_k， z_i;\theta)}{Q(z_i)}
 $$
 
 - 最后一步利用$Jensen$不等式把**$log和函数$** 变为**$和log函数$**。
-因为，$f(y)=log y$是**凹函数**，所以Jensen不等式反号，令$y_i=\frac{P(x_i,z_i;\theta)}{Q(z_i)}$
+因为，$f(y)=log y$是**凹函数**，所以Jensen不等式反号，令$y_i=\frac{P(x_k,z_i;\theta)}{Q(z_i)}$
 上式即$f(E(y)) \geq E(f(y))$，通过交替更新$z$和$\theta$， 通过寻找$Jensen$函数下界的极大值，从而达到找到原函数(*凹*)的极大值的目的，直至收敛（在端点）。
 - 退一步讲，即使找到的不是极值，满足$Jensen$函数下界递增的参数也是使原函数向极值点奔去的参数。
 
 更进一步拆分上式:
 $$
-\geq \sum_{i=1}^n \sum_{z_i}Q(z_i)[log P(x_i， z_i;\theta)-log Q(z_i)]
-
+\tag{5}
+\sum_{k=1}^n \sum_{z_i}Q(z_i)[log P(x_k， z_i;\theta)-log Q(z_i)]
 $$
 
+分析：
+- 我们的目标是公式$1$中的最大参数$\theta$, $x_k$是已知的样本数据; $Q(z_i)$是$Jensen$不等式中的一组$\lambda_i$, 它只在计算过程中起辅助作用，不是我们要的。
+- 随机初始化一个$\theta^0$, 然后要找到一组$\lambda_i=Q(z_i)$使得$5$式最大, 此时$5$式的后半部分$log Q(z_i)$是会影响$Q(z_i)$的选择的（为了使整个$5$达到最大）。而一旦$Q(z_i)$选定了之后
+- 目标函数就变成了以$\theta$为参数的函数，而此极大化过程与$5$式的后半部分无关，为了简化计算，一般都把后半部分略去了，从而目标函数变成了：
+$$
+\theta^{t+1} =\underset{\theta^t}{\operatorname{argmax}}\sum_{k=1}^n \sum_{z_i}Q(z_i)log P(x_k， z_i;\theta^t)
+$$ 
+
+- 从整体来看，都是在提升$\theta$, 而$Q(z_i)=\lambda_i$只是辅助，中间虽然省掉了一部分，但整体上还是$\theta$还是提升了，虽然没有极值理论最大化提升，所以可以说是路径弯曲了一点，（节省了大量计算）。但大目标没有变，最终还是能收敛。算法的效果是可以达到的，而针对此处**破绽**的分析很少有人提，习惯都是一笔带过，故此补上这个遗憾。
 
 ### Jensen不等式
 设$f$是定义域为$R$的函数
@@ -73,10 +86,10 @@ $$
 
 整个语料库生成的对数似然函数为：
 
-$$\ell(L(\theta))=\ell(L(A，B))=\sum_{i=1}^M\sum_{j=1}^N n(d_i，w_j)log P(d_i，w_j) \newline
-=\sum_{i=1}^M\sum_{j=1}^N n(d_i，w_j)[log P(d_i)+log\sum_{k=1}^K a_{kj}b_{ik}]
+$$\ell(L(\theta))=\ell(L(A，B))=\sum_{k=1}^M\sum_{j=1}^N n(d_i，w_j)log P(d_i，w_j) \newline
+=\sum_{k=1}^M\sum_{j=1}^N n(d_i，w_j)[log P(d_i)+log\sum_{k=1}^K a_{kj}b_{ik}]
 \newline
-=\sum_{i=1}^M n(d_i)[log P(d_i)+\sum_{j=1}^N \frac{n(d_i，w_j)}{n(d_i)} log\sum_{k=1}^K a_{kj}b_{ik}]
+=\sum_{k=1}^M n(d_i)[log P(d_i)+\sum_{j=1}^N \frac{n(d_i，w_j)}{n(d_i)} log\sum_{k=1}^K a_{kj}b_{ik}]
 $$
 
 其中　$n(d_i)$ 表示第$i$篇文档词的总数，$n(d_i，w_j)$表示文档$i$中第$j$个词的个数。
@@ -94,7 +107,7 @@ $$
 于是问题转化为约束条件下的极值问题，可用[Lagrange乘子法](AI/ML/Lagrange.md) 解得:
 
 $$
-a_{kj}=\frac{\sum_{i=1}^M n(d_i,w_j)P(z_k|d_i,w_j)}{\sum_{o=1}^N\sum_{i=1}^M n(d_i,w_o)P(z_k|d_i,w_o)} \newline 
+a_{kj}=\frac{\sum_{k=1}^M n(d_i,w_j)P(z_k|d_i,w_j)}{\sum_{o=1}^N\sum_{k=1}^M n(d_i,w_o)P(z_k|d_i,w_o)} \newline 
 
 b_{ik}=\frac{\sum_{j=1}^N n(d_i,w_j)P(z_k|d_i,w_j)}{n(d_i)}
 $$
