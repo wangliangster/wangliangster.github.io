@@ -1,6 +1,14 @@
 ## 以下纯属闲扯～
 
 有意见，欢迎留言[Issue](https://github.com/wangliangster/wangliangster.github.io/issues)。
+- $$\pi^4+\pi^5 \approx e^6 $$ 精度达到万分之一，说是个“流氓”荤段子，考验智商~
+<div style="text-align: right">
+ <font size="3" color="blue">
+   <i>
+      --- Wang Liang 2020-Mar-18
+   </i>
+ </font>
+</div>
 
 - 这些年，一直沉浸在逻辑世界的泥潭里无法自拔，忽略了对非逻辑（如爱，感动，开心，悲伤...）的思考；这也解释了为什么有些人，看着其实挺“笨”，但若对非逻辑把握得好的话，也一样活得很好，很好；反之，会很惨，很惨。
 <div style="text-align: right">
