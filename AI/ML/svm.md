@@ -35,7 +35,7 @@ k(x_1,x_2)\\
 =e^{-\frac{(x_1-x_2)^2}{2 \sigma^2}} \\
 = e^{-\frac{x_1^2+x_2^2-2x_1x_2}{2 \sigma^2}} \\
 =e^{-\frac{x_1^2+x_2^2}{2\sigma^2}} \cdot e^{\frac{x_1x_2}{\sigma^2}} \\
-=e^{-\frac{x_1^2+x_2^2}{2\sigma^2}} \cdot (1+\frac{1}{\sigma^2}  \frac{x_1x_2}{1!}+(\frac{1}{\sigma^2})^2\frac{{(x_1x_2)}^2}{2!}+(\frac{1}{\sigma^2})^3\frac{{(x_1x_2)}^3}{3!}+...+(\frac{1}{\sigma^2})^n\frac{{(x_1x_2)}^n}{n!})\\
+=e^{-\frac{x_1^2+x_2^2}{2\sigma^2}} \cdot (1+\frac{1}{\sigma^2}  \frac{x_1x_2}{1!}+(\frac{1}{\sigma^2})^2\frac{(x_1x_2)^2}{2!}+(\frac{1}{\sigma^2})^3\frac{(x_1x_2)^3}{3!}+...+(\frac{1}{\sigma^2})^n\frac{(x_1x_2)^n}{n!}) \\
 =e^{-\frac{x_1^2+x_2^2}{2\sigma^2}}\cdot(1 \cdot 1+\frac{1}{1!}\frac{x_1}{\sigma}\frac{x_2}{\sigma}+\frac{1}{2!}\frac{x_1^2}{\sigma^2}\frac{x_2^2}{\sigma^2}+\frac{1}{3!}\frac{x_1^3}{\sigma^3}\frac{x_2^3}{\sigma^3}+...\frac{1}{n!}\frac{x_1^n}{\sigma^n}\frac{x_2^n}{\sigma^n})\end{array}$$
 
 
