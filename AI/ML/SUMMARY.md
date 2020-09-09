@@ -1,5 +1,6 @@
 * [机器学习](AI/ML/README.md)
 ---
+* [损失函数汇总](AI/ML/Loss.md)
 * [谈谈过拟和](AI/ML/overfit/of.md)
 * [Jacobian矩阵](AI/ML/jacobi.md)
 * [Hessian矩阵](AI/ML/hessian.md)
