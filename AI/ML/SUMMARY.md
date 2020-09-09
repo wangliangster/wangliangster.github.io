@@ -9,7 +9,7 @@
 * [最小二乘法](AI/ML/leastsquares.md)
 * [逻辑回归](AI/ML/logistics.md)
 * [线性回归](AI/ML/LR.md)
-* [决策树](AI/ML/overfit/of.md)
+* [决策树](AI/ML/decisionTree.md)
 * [Lagrange乘子法](AI/ML/Lagrange.md)
 * [KKT条件](AI/ML/kkt.md)
 * [SVM](AI/ML/svm.md)
