@@ -1,7 +1,8 @@
 # 详细项目经验
 
 ## Pytorch autograd 自动微分 
-**内容:** 2019/05-now, 基于Pytorch的自动微分机制，对其核心vector-Jacobian Product进行详细分析，解读，实验并形成总结文章
+**内容:** 2019/05-2019/06, 基于Pytorch的自动微分机制，对其核心vector-Jacobian Product进行详细分析，解读，实验并形成总结文章
+- 详解Pytorch 自动微分里的（vector-Jacobian product） [https://zhuanlan.zhihu.com/p/65609544](https://zhuanlan.zhihu.com/p/65609544)
 
 **技术点:** Pytorch, 数学，BP, autograd
 
